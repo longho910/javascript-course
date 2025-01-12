@@ -1,106 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DOM Projects</title>
-    <style>
-      body {
-        font-family: Arial;
-      }
-
-      .subscribe-button {
-        border: none;
-        background-color: black;
-        color: white;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 15px;
-        padding-right: 15px;
-        font-weight: bold;
-        border-radius: 50px;
-        cursor: pointer;
-        margin-bottom: 30px;
-
-      }
-      .is-subscribed {
-        background-color: rgb(240, 240, 240);
-        color: black;
-      }
-
-      .cost-input {
-        font-size: 15px;
-        padding: 10px;
-      }
-
-      .calculate-button{
-        background-color: green;
-        color: white;
-        border: none;
-        font-size: 15px;
-        padding: 12px 15px;
-        cursor: pointer;
-      }
-      
-    </style>
+    <title>10 - Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles/10-rock-paper-scissors.css">
   </head>
   <body>
-    <p>YouTube Subscribe Button</p>
+    <p class="title">Rock Paper Scissors</p>
     <button onclick="
-      subscribe();
-    " class="js-subscribe-button subscribe-button">
-      Subscribe
-    </button>
-    <hr>
+      playGame('rock');      
+    " class="move-button"><img src="images/rock-emoji.png" alt="rock-emoji" class="move-icon"></button>
 
-    <p>Amazon Shipping Calculator</p>
-    <p>Orders under $40 = +$10 shipping.
-    <p>Orders over $40 = FREE shipping.</p>
-    </p>
-    <input type="text" placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="
-      handleCostKeydown(event);
-    ">
-    <button onclick="calculateTotal();" class="calculate-button">Calculate</button>
-    <p class="js-total-cost"></p>
+    <button onclick="
+      playGame('paper');
+    " class="move-button"><img src="images/paper-emoji.png" alt="paper-emoji" class="move-icon"></button>
 
-    <script>
-      String(25);
-      console.log('25' - 5);
-      console.log('25' + 5);
+    <button onclick="
+      playGame('scissors');
+    " class="move-button"><img src="images/scissors-emoji.png" alt="scissors-emoji" class="move-icon"></button>
 
-      // document object represents web page
-      // window object represents browser (automatically add at the front)
+    <p class="js-result result"></p>
+    <p class="js-moves"></p>
+    <p class="js-score score"></p>
 
-      window.document
-      window.console.log('window');
-      window.alert
+    <button onclick="
+      score.wins = 0;
+      score.losses = 0;
+      score.ties = 0;
+      localStorage.removeItem('score');
+      updateScoreElement();
+    " class="reset-score-button">Rest Score</button>
 
-      function handleCostKeydown(event) {
-        if (event.key === 'Enter') 
-          calculateTotal();
-      }
-
-      function calculateTotal() {
-        const inputElement = document.querySelector('.js-cost-input');
-        let cost = Number(inputElement.value);
-
-        if (cost < 40) {
-          cost += 10; // 10 is for shipping
-        }
-        const costElement = document.querySelector('.js-total-cost');
-        costElement.innerHTML = `Total cost: $${cost}`;
-      }
-
-      function subscribe() {
-        const subscribeButton = document.querySelector('.js-subscribe-button');
-        if (subscribeButton.innerText === 'Subscribe') {
-          subscribeButton.innerText = 'Subscribed';
-          subscribeButton.classList.add('is-subscribed');
-        } else {
-          subscribeButton.innerText = 'Subscribe';
-          subscribeButton.classList.remove('is-subscribed');
-        }
-      }
-
-    </script>
-      
+    <script src="scripts/10-rock-paper-scissors.js"></script>
   </body>
 </html>
