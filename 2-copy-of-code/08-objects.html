@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Objects</title>
+    <title>08 - Object</title>
   </head>
   <body>
     <script>
       /*
       const product = {
-        name: 'socks',
-        price: 1090
+        name: 'sock',
+        price: 1090,
       };
       console.log(product);
       console.log(product.name);
@@ -17,78 +17,103 @@
       product.name = 'cotton socks';
       console.log(product);
 
-      product.newProperty = true;
+      product.newProperty = true
       console.log(product);
 
       delete product.newProperty;
       console.log(product);
-      */
+      
 
-      /*
       const product2 = {
         name: 'shirt',
-        'delivery-time': '1 day',
+        'delivery-time' : '1 day',
         rating: {
           stars: 4.5,
-          count: 87
+          count: 99,
         },
         fun: function function1() {
           console.log('function inside object');
         }
-      };
+      }
+
       console.log(product2);
       console.log(product2.name);
       console.log(product2['name']);
+
       console.log(product2['delivery-time']);
-      
-      console.log(product2.rating.count);
+
+      // nested retrieval of object
+      console.log(product2.rating.stars);
+
       product2.fun();
 
       console.log(typeof console.log);
 
+      // convert js object to json
       console.log(JSON.stringify(product2));
 
+      // convert json to js object
       const jsonString = JSON.stringify(product2);
       console.log(JSON.parse(jsonString));
+
+      // localStorage: save values more permanently
+
       */
 
+      // null vs undefined
+      // null: intentionally want sth to be empty;
+
+      // auto-boxing: wrap string to special object (does not work with null and undefined)
+      // so, string have property and method
       console.log('hello'.length);
       console.log('hello'.toUpperCase());
 
+      // objects are references 
       const object1 = {
         message: 'hello',
-        price: 799
       };
-      const object2 = object1;
+
+      const object2 = object1; // object2 point to the same object as object 1
 
       object1.message = 'Good job!';
       console.log(object1);
       console.log(object2);
 
+      // we can't compare object directly b/c object are references 
       const object3 = {
-        message: 'Good job!',
-        price: 799
+        message: 'Good job!'
       };
-      console.log(object1 === object3);
 
-      // const message = object1.message;
-      const { message, price: cost } = object1;
-      console.log(message);
-      console.log(cost);
+      console.log(object3 === object1); // false
+      console.log(object2 === object1); // true
 
+      // shortcuts for object
       const object4 = {
-        // message: message,
-        message,
-        // method: function function1() {
-
-        // },
-        // method: function() {
-
-        // },
-        method() {
-
-        }
+        message: 'Good job!',
+        price: 999,
       };
+
+      //const message = object4.message; // variable name = property name
+      const { message, price } = object4; // destructuring
+      console.log(message, price);
+
+      // shorthand property
+      const object5 = {
+        // message: message,
+        message, // shorthand property
+
+        //method: function function1() {
+        //  console.log('method')
+        //}
+        
+        method() {
+          console.log('method');
+        }
+      }
+
+      console.log(object5);
+      object5.method();
+
     </script>
   </body>
 </html>

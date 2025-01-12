@@ -7,8 +7,11 @@ alert('hello');
 typeof 2
 typeof 'hello'
 
-'hello' + 3
-'$' + 20.95 + 7.99
+'hello' + 3 // convert 3 to string, called type coercion
+
+'$' + 20.95 + 7.99 // '$20.957.99'
+
+// strings also follow the Order of Operation, e.t (...) > "* /" > "+ -" 
 '$' + (20.95 + 7.99)
 '$' + (2095 + 799) / 100
 
